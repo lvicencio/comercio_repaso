@@ -1,0 +1,69 @@
+{% extends 'app/layout.html' %}
+
+{% load static %}
+
+{% block css %}
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock css %}
+
+
+{% block js %}
+ <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+ 
+ <script src="{% static 'sitio/js/menu.js' %}"></script>
+  
+    <script>
+        $(document).ready(function() {
+          $('.slider').bxSlider({
+              mode: 'fade',//horizontal, vertical, fade
+              auto: true,
+              pause: 2000
+          });
+        });
+    </script>
+{% endblock js %}
+
+{% block content %}
+
+
+ <div class="slider">
+                <div>
+                    <img src="{% static 'sitio/img/banner/banner1.png' %}" alt="">
+                </div>
+                <div>
+                    <img src="{% static 'sitio/img/banner/banner2.png' %}" alt="">
+                </div>
+                <div>
+                    <img src="{% static 'sitio/img/banner/banner3.png' %}" alt="">
+                </div>
+ </div>
+
+        <h2>Productos</h2>
+        {% load humanize %}
+<div class="productos">
+ {% for producto in productos %}
+    <div class="producto">
+
+        <div class="contenedor_producto">
+            {% if producto.imagen.url %}
+            <img src="{{ producto.imagen.url}}" alt="imagen producto">
+             {% endif %}
+             <div class="detalle">
+                        <h5>{{ producto.marca | capfirst}}</h5>
+                        <h2>{{ producto.nombre | title}}</h2>
+                        <h3>${{producto.precio | intcomma}}</h3>
+             </div>
+
+         </div>
+
+     </div>
+  {% endfor %}        
+
+</div>
+
+
+
+
+{% endblock content %}
+
+

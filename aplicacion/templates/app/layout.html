@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comercio Python</title>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    {% block css %}{% endblock css %}
+
+    <link rel="stylesheet" href="{% static 'sitio/css/estilos.css' %}">
+    
+</head>
+<body>
+
+    
+    <header id="header">
+        <img class="menu" src="{% static 'sitio/img/menuiconwhite.png' %}" alt="menu" id="menu">
+        <div class="contenedor_logo">
+            <img  class="logo"  src="{% static 'sitio/img/tecnomarketpngicono.png' %}" alt="logo">
+        </div>
+
+        <div>
+            
+            <nav id="nav">
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}"> Inicio </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contacto' %}">Contacto</a>
+                    </li>
+                    <li><a href="{% url 'galeria' %}">Galería</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+    <div id="contenido">
+
+           {% block content %}
+           
+           
+           {% endblock content %}
+
+    </div>
+
+
+    <footer>
+        <div class="marcas">
+            <img src="{% static 'sitio/img/footer/apple.png' %}" alt="apple">
+            <img src="{% static 'sitio/img/footer/lenovo.png' %}" alt="lenovo">
+            <img src="{% static 'sitio/img/footer/microsoft.png' %}" alt="microsoft">
+            <img src="{% static 'sitio/img/footer/samsung.png' %}" alt="samsung">
+            <img src="{% static 'sitio/img/footer/xiaomi.png' %}" alt="xiaomi">
+        </div>
+        <div class="logo_footer">
+            <img src="{% static 'sitio/img/tecnomarketpngicono.png' %}" alt="logo">
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+   {% block js %}{% endblock js %}
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+{% block js %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+{% endblock js %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock css %}
+
+
+
+
+
+{% block content %}
+
+<h2>Galería de nuestra tienda</h2>
+           <br><br>
+           <div class="galeria">
+                <a data-fancybox="gallery" href="{% static 'sitio/img/tienda/tienda1.jpg' %}"><img src="{% static 'sitio/img/tienda/tienda1.jpg' %}"></a>
+                <a data-fancybox="gallery" href="{% static 'sitio/img/tienda/tienda2.jpeg' %}"><img src="{% static 'sitio/img/tienda/tienda2.jpeg' %}"></a>
+                <a data-fancybox="gallery" href="{% static 'sitio/img/tienda/tienda3.jpg' %}"><img src="{% static 'sitio/img/tienda/tienda3.jpg' %}"></a>
+                <a data-fancybox="gallery" href="{% static 'sitio/img/tienda/tienda4.jpg' %}"><img src="{% static 'sitio/img/tienda/tienda4.jpg' %}"></a>
+                <a data-fancybox="gallery" href="{% static 'sitio/img/tienda/tienda5.jpg' %}"><img src="{% static 'sitio/img/tienda/tienda5.jpg' %}"></a>     
+           </div>
+
+
+{% endblock content %}
+
