@@ -5,6 +5,38 @@
 {% load crispy_forms_tags %}
 {% load humanize %}
 
+{% block js %}
+
+    <script>
+        function confirmEliminar(id)
+        {
+            Swal.fire({
+            position: 'top-center',
+            icon: 'question',
+            title: '¿Confirmar Eliminar este Producto?',
+            showCancelButton: true,
+            showConfirmButton: true,
+            cancelButtonText: 'No',
+            confirmButtonText: 'Si, Eliminar',
+            reverseButtons: true,
+            confirmButtonColor: '#dc3545'
+       })
+       .then(function(result){
+           if(result.isConfirmed){
+               window.location.href= "/eliminar-producto/"+id+"/"
+           }
+       })
+    
+}
+
+    </script>
+
+{% endblock js %}
+
+
+
+
+
 <div class="row">
     <div class="col-12 col-md-10 offset-md-1">
     <br>
@@ -21,7 +53,7 @@
                         <th>Opciones</th>
 
                     </tr>
-                {% for producto in productos %}
+                {% for producto in entity %}
                     <tr>
                         <td>{{producto.nombre | title}}</td>
                         <td>$ {{producto.precio | intcomma}}</td>
@@ -37,13 +69,16 @@
                         <td>
                             <a href="{% url 'editar_producto' producto.id %}" class="btn btn-info btn-sm">Editar</a> 
                             &nbsp;
-                            <a href="{% url 'eliminar_producto' producto.id %}" class="btn btn-danger btn-sm" onclick="
-return confirm('¿Eliminar Producto?')">Eliminar </a>
+                            <a href="#" class="btn btn-danger btn-sm" onclick="confirmEliminar({{ producto.id }})">Eliminar </a>
                         </td>
                     </tr>
                 {% endfor %}
                 </table>
-
+                <hr>
+                <div>
+                    {% include 'app/paginator.html' %}
+                </div>
+                <hr>
             </div>
         </div>
 <br>
