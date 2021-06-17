@@ -30,6 +30,9 @@ ALLOWED_HOSTS = []
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 # Application definition
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 INSTALLED_APPS = [
     'admin_interface', #  django-admin-interface
     'django.contrib.admin',
