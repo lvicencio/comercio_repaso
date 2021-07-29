@@ -29,8 +29,12 @@
                     <li>
                         <a href="{% url 'home' %}"> Inicio </a>
                     </li>
+                    {% if perms.comercio.add_producto %}
                     <li><a href="{% url 'nuevo_producto' %}">Nuevo Producto</a></li>
+                    {% endif %}
+                    {% if perms.comercio.view_producto %}
                     <li><a href="{% url 'listar_producto' %}">Listar</a></li>
+                    {% endif %}
                     <li>
                         <a href="{% url 'contacto' %}">Contacto</a>
                     </li>
